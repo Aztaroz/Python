@@ -1,0 +1,1 @@
+gap_size = (gap_size + 1) / 2

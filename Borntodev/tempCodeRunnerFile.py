@@ -1,0 +1,1 @@
+        print(factorial,"x",i)
