@@ -1,0 +1,209 @@
+|--- ST_Slope <= 0.75
+|   |--- MaxHR <= 0.64
+|   |   |--- Sex <= 0.50
+|   |   |   |--- FastingBS <= 0.50
+|   |   |   |   |--- ExerciseAngina <= 0.50
+|   |   |   |   |   |--- RestingBP <= 0.70
+|   |   |   |   |   |   |--- MaxHR <= 0.26
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- MaxHR >  0.26
+|   |   |   |   |   |   |   |--- MaxHR <= 0.61
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- MaxHR >  0.61
+|   |   |   |   |   |   |   |   |--- Cholesterol <= 0.46
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- Cholesterol >  0.46
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- RestingBP >  0.70
+|   |   |   |   |   |   |--- Age <= 65.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- Age >  65.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- ExerciseAngina >  0.50
+|   |   |   |   |   |--- MaxHR <= 0.37
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- MaxHR >  0.37
+|   |   |   |   |   |   |--- RestingBP <= 0.71
+|   |   |   |   |   |   |   |--- RestingBP <= 0.64
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- RestingBP >  0.64
+|   |   |   |   |   |   |   |   |--- Cholesterol <= 0.50
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- Cholesterol >  0.50
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- RestingBP >  0.71
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |--- FastingBS >  0.50
+|   |   |   |   |--- class: 1
+|   |   |--- Sex >  0.50
+|   |   |   |--- MaxHR <= 0.08
+|   |   |   |   |--- class: 0
+|   |   |   |--- MaxHR >  0.08
+|   |   |   |   |--- ChestPainType <= 0.83
+|   |   |   |   |   |--- Oldpeak <= 0.47
+|   |   |   |   |   |   |--- FastingBS <= 0.50
+|   |   |   |   |   |   |   |--- ExerciseAngina <= 0.50
+|   |   |   |   |   |   |   |   |--- Oldpeak <= 0.32
+|   |   |   |   |   |   |   |   |   |--- MaxHR <= 0.27
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- MaxHR >  0.27
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- Oldpeak >  0.32
+|   |   |   |   |   |   |   |   |   |--- RestingECG <= 0.25
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- RestingECG >  0.25
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- ExerciseAngina >  0.50
+|   |   |   |   |   |   |   |   |--- RestingBP <= 0.85
+|   |   |   |   |   |   |   |   |   |--- Age <= 43.00
+|   |   |   |   |   |   |   |   |   |   |--- Age <= 39.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- Age >  39.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- Age >  43.00
+|   |   |   |   |   |   |   |   |   |   |--- MaxHR <= 0.36
+|   |   |   |   |   |   |   |   |   |   |   |--- MaxHR <= 0.31
+|   |   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |   |--- MaxHR >  0.31
+|   |   |   |   |   |   |   |   |   |   |   |   |--- Cholesterol <= 0.46
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- Oldpeak <= 0.31
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- Oldpeak >  0.31
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |   |   |--- Cholesterol >  0.46
+|   |   |   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |   |--- MaxHR >  0.36
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- RestingBP >  0.85
+|   |   |   |   |   |   |   |   |   |--- ChestPainType <= 0.33
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- ChestPainType >  0.33
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- FastingBS >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- Oldpeak >  0.47
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- ChestPainType >  0.83
+|   |   |   |   |   |--- RestingECG <= 0.25
+|   |   |   |   |   |   |--- Oldpeak <= 0.30
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- Oldpeak >  0.30
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- RestingECG >  0.25
+|   |   |   |   |   |   |--- class: 1
+|   |--- MaxHR >  0.64
+|   |   |--- ChestPainType <= 0.17
+|   |   |   |--- MaxHR <= 0.65
+|   |   |   |   |--- class: 0
+|   |   |   |--- MaxHR >  0.65
+|   |   |   |   |--- Age <= 45.00
+|   |   |   |   |   |--- RestingBP <= 0.56
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- RestingBP >  0.56
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- Age >  45.00
+|   |   |   |   |   |--- Oldpeak <= 0.36
+|   |   |   |   |   |   |--- Age <= 56.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- Age >  56.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- Oldpeak >  0.36
+|   |   |   |   |   |   |--- class: 1
+|   |   |--- ChestPainType >  0.17
+|   |   |   |--- RestingECG <= 0.75
+|   |   |   |   |--- Oldpeak <= 0.58
+|   |   |   |   |   |--- RestingBP <= 0.27
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- RestingBP >  0.27
+|   |   |   |   |   |   |--- RestingBP <= 0.56
+|   |   |   |   |   |   |   |--- Sex <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- Sex >  0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- RestingBP >  0.56
+|   |   |   |   |   |   |   |--- FastingBS <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- FastingBS >  0.50
+|   |   |   |   |   |   |   |   |--- Oldpeak <= 0.34
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- Oldpeak >  0.34
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- Oldpeak >  0.58
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- RestingECG >  0.75
+|   |   |   |   |--- class: 1
+|--- ST_Slope >  0.75
+|   |--- Cholesterol <= 0.08
+|   |   |--- FastingBS <= 0.50
+|   |   |   |--- MaxHR <= 0.46
+|   |   |   |   |--- class: 1
+|   |   |   |--- MaxHR >  0.46
+|   |   |   |   |--- MaxHR <= 0.65
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- MaxHR >  0.65
+|   |   |   |   |   |--- class: 1
+|   |   |--- FastingBS >  0.50
+|   |   |   |--- class: 1
+|   |--- Cholesterol >  0.08
+|   |   |--- Age <= 57.50
+|   |   |   |--- RestingBP <= 0.93
+|   |   |   |   |--- Oldpeak <= 0.55
+|   |   |   |   |   |--- Oldpeak <= 0.40
+|   |   |   |   |   |   |--- RestingBP <= 0.56
+|   |   |   |   |   |   |   |--- RestingBP <= 0.56
+|   |   |   |   |   |   |   |   |--- Cholesterol <= 0.40
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- Cholesterol >  0.40
+|   |   |   |   |   |   |   |   |   |--- RestingBP <= 0.55
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- RestingBP >  0.55
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- RestingBP >  0.56
+|   |   |   |   |   |   |   |   |--- ChestPainType <= 0.33
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- ChestPainType >  0.33
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- RestingBP >  0.56
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- Oldpeak >  0.40
+|   |   |   |   |   |   |--- ChestPainType <= 0.17
+|   |   |   |   |   |   |   |--- RestingBP <= 0.66
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- RestingBP >  0.66
+|   |   |   |   |   |   |   |   |--- ExerciseAngina <= 0.50
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- ExerciseAngina >  0.50
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- ChestPainType >  0.17
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- Oldpeak >  0.55
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- RestingBP >  0.93
+|   |   |   |   |--- class: 1
+|   |   |--- Age >  57.50
+|   |   |   |--- ChestPainType <= 0.17
+|   |   |   |   |--- MaxHR <= 0.69
+|   |   |   |   |   |--- Oldpeak <= 0.36
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- Oldpeak >  0.36
+|   |   |   |   |   |   |--- RestingBP <= 0.78
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- RestingBP >  0.78
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- MaxHR >  0.69
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- ChestPainType >  0.17
+|   |   |   |   |--- Cholesterol <= 0.51
+|   |   |   |   |   |--- RestingECG <= 0.25
+|   |   |   |   |   |   |--- RestingBP <= 0.74
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- RestingBP >  0.74
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- RestingECG >  0.25
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- Cholesterol >  0.51
+|   |   |   |   |   |--- Age <= 64.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- Age >  64.50
+|   |   |   |   |   |   |--- class: 0
+
