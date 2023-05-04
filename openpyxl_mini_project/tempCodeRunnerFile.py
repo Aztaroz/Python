@@ -1,4 +1,3 @@
-if sheet_index == 0 : print("รูปแบบที่ถูกต้อง คือ COVER")
-            else : 
-                print(f'ยอดขายปี25{sales_years[index_sales_years]}')
-                index_sales_years += 1
+
+    # def __repr__(self):      #! Representing your object 
+    #     return f"Item ('{self.name}', {self.price}, {self.quantity})\n"

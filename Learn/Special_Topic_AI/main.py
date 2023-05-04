@@ -11,7 +11,8 @@
 
 from machine import Pin, SoftI2C, PWM
 import ssd1306
-from time import sleep
+# from time import sleep
+import time
 import dht
 import machine
 import network
@@ -21,6 +22,8 @@ import urequests
 red_pin = Pin(15, Pin.OUT)
 green_pin = Pin(2, Pin.OUT)
 blue_pin = Pin(4, Pin.OUT)
+
+start_time = time.time()
 
 # Define PWM objects for each pin
 red_pwm = PWM(red_pin)
@@ -39,7 +42,7 @@ ldr = Pin(14, Pin.IN)
 # ThingSpeak Settings
 api_key = "Y9AEDKP3E370F0BL" # ThingSpeak API key
 
-sleep(2)
+time.sleep(2)
 oled_width = 128
 oled_height = 64
 oled = ssd1306.SSD1306_I2C(oled_width, oled_height, i2c)
@@ -61,11 +64,12 @@ def set_color(red, green, blue):
 sta_if = network.WLAN(network.STA_IF)
 sta_if.active(True)
 sta_if.connect('IoTAD02', 'ccsadmin')
+# sta_if.connect('Aztaroz')
 while not sta_if.isconnected():
     set_color(255, 0, 0)
-    sleep(0.2)
+    time.sleep(0.2)
     set_color(0, 0, 255)
-    sleep(0.2)
+    time.sleep(0.2)
 print('network config:', sta_if.ifconfig())
 
 # Main loop
@@ -75,6 +79,9 @@ while True:
     t = rtc.datetime()
     now = '{:04d}-{:02d}-{:02d} {:02d}:{:02d}:{:02d}'.format(t[0], t[1], t[2], t[4], t[5], t[6])
 
+    current_time = time.time()
+    elapsed_time = current_time - start_time
+
     try:
         # Read temperature and humidity
         sensorDHT.measure()
@@ -82,12 +89,16 @@ while True:
         hum = sensorDHT.humidity()
         print("ldr value = ", ldr.value())
 
-
         # If motion detected, display time, temperature and humidity
         if ldr.value() == 1:
-            response = urequests.get(
-                f'https://api.thingspeak.com/update?api_key={api_key}&field1={temp}&field2={hum}&field3={ldr.value()}')
-            response.close()
+
+            if elapsed_time >= 30:
+                print("API sent")
+                response = urequests.get(
+                    f'https://api.thingspeak.com/update?api_key={api_key}&field1={temp}&field2={hum}&field3={ldr.value()}')
+                response.close()
+                start_time = time.time()
+
             print('OBJECT DETECTED')
             oled.fill(0)
             oled.text(string="Time: " + now, x=2, y=2)
@@ -96,7 +107,7 @@ while True:
             oled.text("Humid: " + str(hum) + " %", 2, 40, 1)
             oled.text('ip: ' + sta_if.ifconfig()[0], 2, 50, 1)
             oled.show()
-            sleep(30)
+
         else:
             # If no motion detected, display nothing
             print('no object detected')
@@ -106,7 +117,7 @@ while True:
 
     except OSError as e:
         print('Failed to read sensor.')
-        sleep(0.5)
+        time.sleep(0.5)
 
 
 ###################################### Sensor ##########################################
